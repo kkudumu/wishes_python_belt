@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Item</title>
+</head>
+<body>
+	<a href="/dashboard">Home</a>  <a href="/logout">Logout</a>
+	<h1>Create a new wish list item</h1>
+
+	{% if messages %}
+   		{% for message in messages %}
+    		<p>{{ message }}</p>
+   		{% endfor %}
+    {% endif %}
+
+    <form action="/submitted" method="POST">
+		{% csrf_token %}
+		<p>Item/Product: <input type="text" name="item"></p>
+		<input type="submit" name="submit" value="Add">
+	</form>
+
+
+</body>
+</html>
